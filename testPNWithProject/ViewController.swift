@@ -8,10 +8,14 @@
 
 import UIKit
 
+let sharedUserDefaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       sharedUserDefaults?.set("Mahmoud", forKey: SharedUserDefaults.keys.userName)
+        guard let userName = sharedUserDefaults?.string(forKey: SharedUserDefaults.keys.userName) else {return}
+        print("Key is \(userName)")
         // Do any additional setup after loading the view, typically from a nib.
     }
 

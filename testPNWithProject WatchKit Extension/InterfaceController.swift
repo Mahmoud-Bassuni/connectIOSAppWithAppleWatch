@@ -12,9 +12,11 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    let sharedUserDefaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        guard let userName = sharedUserDefaults?.string(forKey: SharedUserDefaults.keys.userName) else {return}
+        print("Key is \(userName)")
         // Configure interface objects here.
     }
     
